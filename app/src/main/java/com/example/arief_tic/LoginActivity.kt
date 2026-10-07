@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -25,24 +26,36 @@ class LoginActivity : AppCompatActivity() {
             insets
         }
 
-//        val btnLogin: Button =findViewById(R.id.btn_login);
-//        val username: TextInputLayout =findViewById(R.id.edtUsername);
-//        val password: TextInputLayout =findViewById(R.id.edtPassword);
+        // Kode ini harus selalu dipanggil saat butuh akses "user_pref"
+        val sharedPref = getSharedPreferences("user_pref", MODE_PRIVATE)
+//        // Kondisi jika isLogin bernilai true
+//        val isLogin = sharedPref.getBoolean("isLogin", false)
+//        if (isLogin) {
+//            startActivity(Intent(this, MainActivity::class.java))
+//            finish()
+//            return
+//        }
 
         binding.btnLogin.setOnClickListener {
             val tampungUser = binding.edtUsername.editText?.text.toString()
             val tampungPassword = binding.edtPassword.editText?.text.toString()
 
-            val intent = Intent(this@LoginActivity, MainActivity::class.java)
-            intent.putExtra("nama", "Arief")
-            intent.putExtra("umur", 20)
+            if (tampungUser.isNotEmpty() && tampungUser == tampungPassword) {
+                val editor = sharedPref.edit()
+                editor.putBoolean("isLogin", true)
+                editor.putString("username", tampungUser)
+                editor.apply()
 
-            startActivity(intent)
+                startActivity(Intent(this, MainActivity::class.java))
+                finish()
+            } else {
+                AlertDialog.Builder(this)
+                    .setTitle("Login Gagal")
+                    .setMessage("Silahkan coba lagi")
+                    .setPositiveButton("OK") { dialog, _ -> dialog.dismiss() }
+                    .show()
+                }
+            }
 
-            Log.d("Username", tampungUser)
-            Log.d("Password", tampungPassword)
-
-            Toast.makeText(this, "Username: $tampungUser Password: $tampungPassword", Toast.LENGTH_LONG).show()
         }
     }
-}
