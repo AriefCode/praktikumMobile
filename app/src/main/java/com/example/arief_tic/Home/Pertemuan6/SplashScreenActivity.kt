@@ -1,4 +1,4 @@
-package com.example.arief_tic.Pertemuan6
+package com.example.arief_tic.Home.Pertemuan6
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,8 +7,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
+import com.example.arief_tic.BaseActivity
 import com.example.arief_tic.LoginActivity
-import com.example.arief_tic.MainActivity
 import com.example.arief_tic.R
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -28,7 +28,7 @@ class SplashScreenActivity : AppCompatActivity() {
         // Kondisi jika isLogin bernilai true
         val isLogin = sharedPref.getBoolean("isLogin", false)
         if (isLogin) {
-            startActivity(Intent(this, MainActivity::class.java))
+            startActivity(Intent(this, BaseActivity::class.java))
             finish()
             return
         }
