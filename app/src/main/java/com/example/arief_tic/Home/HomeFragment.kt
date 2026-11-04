@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AlertDialog
 import com.example.arief_tic.Home.Pertemuan5.LimaActivity
 import com.example.arief_tic.Home.Pertemuan6.EnamActivity
+import com.example.arief_tic.Home.Pertemuan9.NinthActivity
 import com.example.arief_tic.LoginActivity
 import com.example.arief_tic.R
 import com.example.arief_tic.databinding.FragmentHomeBinding
@@ -80,6 +81,11 @@ class HomeFragment : Fragment() {
 
         binding.btnToEnam.setOnClickListener {
             val intent = Intent(requireContext(), EnamActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.btnToNinth.setOnClickListener {
+            val intent = Intent(requireContext(), NinthActivity::class.java)
             startActivity(intent)
         }
 
