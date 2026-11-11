@@ -49,4 +49,8 @@ dependencies {
     implementation("androidx.gridlayout:gridlayout:1.0.0") // Tahap 4: GridLayout
     implementation("androidx.viewpager2:viewpager2:1.1.0") // Tahap 5: ViewPager2
     implementation("com.tbuonomo:dotsindicator:5.1.0") // Tahap 6: DotsIndicator
+
+    //nambah lagi
+    implementation("androidx.recyclerview:recyclerview:1.3.2") // Tahap 3 dan 4: RecyclerView
+    implementation("com.github.bumptech.glide:glide:4.16.0") // Tahap 4: memuat gambar dari URL
 }
