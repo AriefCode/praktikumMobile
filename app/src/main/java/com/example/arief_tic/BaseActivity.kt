@@ -1,7 +1,6 @@
 package com.example.arief_tic
 
 import android.os.Bundle
-import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -10,8 +9,8 @@ import androidx.fragment.app.Fragment
 import com.example.arief_tic.Home.HomeFragment
 import com.example.arief_tic.Message.MessageFragment
 import com.example.arief_tic.More.MoreFragment
+import com.example.arief_tic.Note.FragmentNote
 import com.example.arief_tic.databinding.ActivityBaseBinding
-import com.example.arief_tic.databinding.ActivityEnamBinding
 
 class BaseActivity : AppCompatActivity() {
     private lateinit var binding: ActivityBaseBinding
@@ -42,6 +41,10 @@ class BaseActivity : AppCompatActivity() {
                 }
                 R.id.more -> {
                     replaceFragment(MoreFragment())
+                    true
+                }
+                R.id.note -> {
+                    replaceFragment(FragmentNote())
                     true
                 }
                 else -> false // false jika item tidak dikenal

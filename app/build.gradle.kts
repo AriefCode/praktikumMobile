@@ -1,5 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
+    // Tambahkan ke blok plugins yang sudah ada.
+    id("com.google.devtools.ksp")
 }
 
 android {
@@ -53,4 +55,11 @@ dependencies {
     //nambah lagi
     implementation("androidx.recyclerview:recyclerview:1.3.2") // Tahap 3 dan 4: RecyclerView
     implementation("com.github.bumptech.glide:glide:4.16.0") // Tahap 4: memuat gambar dari URL
+
+    // Tambahkan ke blok dependencies yang sudah ada.
+    val roomVersion = "2.8.4"
+    implementation("androidx.room:room-runtime:$roomVersion")
+    implementation("androidx.room:room-ktx:$roomVersion")
+    ksp("androidx.room:room-compiler:$roomVersion")
+    implementation("androidx.recyclerview:recyclerview:1.3.2")
 }
